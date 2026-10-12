@@ -265,12 +265,62 @@
     footer { text-align: center; padding: 28px 16px; color: #91a3bd; border-top: 1px solid var(--border); font-size: 13px; }
     footer p + p { margin-top: 4px; }
 
-    /* Scroll reveal, activated by JavaScript */
-    .reveal { opacity: 0; transform: translateY(28px) scale(.985); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.75,.25,1); }
-    .reveal.is-visible { opacity: 1; transform: translateY(0) scale(1); }
-    .grid .reveal:nth-child(2) { transition-delay: .08s; }
-    .grid .reveal:nth-child(3) { transition-delay: .15s; }
-    .grid .reveal:nth-child(4) { transition-delay: .22s; }
+  
+/* PREMIUM SLIDING ANIMATIONS */
+main > section.reveal {
+  opacity: 0;
+  transform: translateX(-65px);
+  transition: opacity .75s ease,
+    transform .75s cubic-bezier(.2,.75,.25,1);
+}
+
+main > section.reveal:nth-of-type(even) {
+  transform: translateX(65px);
+}
+
+main > section.reveal.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.grid > .card.reveal {
+  opacity: 0;
+  transform: translateY(35px) scale(.96);
+  transition: opacity .65s ease,
+    transform .65s cubic-bezier(.2,.75,.25,1);
+}
+
+.grid > .card.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.grid > .card.reveal:nth-child(2) {
+  transition-delay: .08s;
+}
+
+.grid > .card.reveal:nth-child(3) {
+  transition-delay: .16s;
+}
+
+.grid > .card.reveal:nth-child(4) {
+  transition-delay: .24s;
+}
+
+@media (max-width: 700px) {
+  main > section.reveal {
+    transform: translateX(-25px);
+  }
+
+  main > section.reveal:nth-of-type(even) {
+    transform: translateX(25px);
+  }
+
+  main > section.reveal.is-visible {
+    transform: translateX(0);
+  }
+}
+
 
     @keyframes driftOne { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(18vw, 14vh, 0) scale(1.18); } }
     @keyframes driftTwo { from { transform: translate3d(0, 0, 0) scale(1); } to { transform: translate3d(-16vw, -12vh, 0) scale(1.2); } }
