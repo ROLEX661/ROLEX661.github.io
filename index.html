@@ -2,64 +2,433 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Manish Kumar | Portfolio</title>
-<style>
-body{margin:0;font-family:Arial,sans-serif;background:#f4f7ff;color:#172033;line-height:1.6}
-header{background:#155eef;color:white;text-align:center;padding:45px 20px}
-.avatar{width:85px;height:85px;border-radius:50%;background:white;color:#155eef;display:grid;place-items:center;font-size:30px;font-weight:bold;margin:auto}
-main{max-width:800px;margin:auto;padding:20px}
-section{background:white;padding:22px;margin:18px 0;border-radius:14px;box-shadow:0 3px 14px #0000000d}
-h2{color:#155eef}
-.tag{display:inline-block;background:#e8efff;color:#1849a9;padding:6px 12px;margin:4px;border-radius:20px}
-a{color:#155eef}
-.btn{display:inline-block;background:white;color:#155eef;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:bold}
-footer{text-align:center;padding:20px;color:#667085}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manish Kumar's portfolio showcasing education, computer skills, accounting interests and learning projects.">
+  <title>Manish Kumar | Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b1120;
+      color: #e5e7eb;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(100% - 32px, 1000px);
+      margin: auto;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 0;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: #60a5fa;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #cbd5e1;
+      margin-left: 16px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #60a5fa;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 65px 20px 75px;
+      background:
+        radial-gradient(ellipse at top, #1e40af 0%, transparent 65%),
+        #0b1120;
+      border-bottom: 1px solid #263449;
+    }
+
+    .avatar {
+      width: 105px;
+      height: 105px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #60a5fa, #2563eb);
+      color: white;
+      font-size: 34px;
+      font-weight: 800;
+      border: 4px solid #93c5fd;
+      box-shadow: 0 0 35px #2563eb55;
+    }
+
+    .eyebrow {
+      color: #93c5fd;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
+
+    h1 {
+      margin: 12px 0;
+      font-size: clamp(34px, 7vw, 56px);
+      line-height: 1.15;
+      color: white;
+    }
+
+    .hero p {
+      color: #cbd5e1;
+      max-width: 600px;
+      margin: 12px auto 24px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 9px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid #64748b;
+    }
+
+    .btn-outline:hover {
+      background: #1e293b;
+    }
+
+    main {
+      padding: 28px 0;
+    }
+
+    section {
+      background: #111b2e;
+      border: 1px solid #263449;
+      border-radius: 16px;
+      padding: 28px;
+      margin: 20px 0;
+      scroll-margin-top: 20px;
+    }
+
+    .section-title {
+      font-size: 25px;
+      color: #93c5fd;
+      margin-bottom: 16px;
+    }
+
+    .section-intro {
+      color: #cbd5e1;
+      margin-bottom: 18px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #1e3a5f;
+      color: #bfdbfe;
+      padding: 9px 14px;
+      border-radius: 8px;
+      border: 1px solid #315582;
+      font-size: 14px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: #0b1120;
+      border: 1px solid #263449;
+      border-radius: 12px;
+      padding: 20px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .card:hover {
+      border-color: #60a5fa;
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      color: white;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .card p,
+    section p {
+      color: #cbd5e1;
+    }
+
+    .education-item {
+      border-left: 3px solid #3b82f6;
+      padding-left: 18px;
+      margin: 18px 0;
+    }
+
+    .education-item h3 {
+      color: white;
+      margin-bottom: 5px;
+    }
+
+    .language-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid #263449;
+    }
+
+    .language-row:last-child {
+      border-bottom: none;
+    }
+
+    .language-level {
+      color: #93c5fd;
+    }
+
+    .contact-box {
+      text-align: center;
+    }
+
+    .contact-box p {
+      margin-bottom: 18px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 16px;
+      color: #94a3b8;
+      border-top: 1px solid #263449;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+      }
+
+      nav a {
+        margin: 0 6px;
+      }
+
+      .hero {
+        padding: 45px 12px 55px;
+      }
+
+      section {
+        padding: 20px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 22px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header>
-<div class="avatar">MK</div>
-<h1>Manish Kumar</h1>
-<p>Fresher | Accounting &amp; Computer Skills</p>
-<a class="btn" href="mailto:manishk958870@gmail.com">Email Me</a>
-</header>
-<main>
-<section>
-<h2>About Me</h2>
-<p>I am a Commerce fresher interested in accounting, office work and computer applications. I am improving my Excel skills and currently learning coding.</p>
-</section>
-<section>
-<h2>Skills</h2>
-<span class="tag">MS Word</span><span class="tag">MS Excel</span>
-<span class="tag">Computer Basics</span><span class="tag">Typing</span>
-<span class="tag">Communication</span>
-</section>
-<section>
-<h2>Projects &amp; Learning</h2>
-<h3>Excel Practice</h3>
-<p>A space to showcase spreadsheet exercises, formulas and tables.</p>
-<h3>Accounting Learning</h3>
-<p>Beginner accounting practice and learning activities.</p>
-</section>
-<section>
-<h2>Education</h2>
-<p><b>Class 12 — Commerce</b> | Passed in 2026</p>
-<p>Accountancy, Business Studies and Economics</p>
-<p>GCSV SEC 13 DWARKA, NEW DELHI 110071</p>
-<p><b>Class 10</b> — GCSV SEC 13 DWARKA, NEW DELHI 110071</p>
-</section>
-<section>
-<h2>Languages</h2>
-<p>Hindi — Fluent</p>
-<p>English — Basic</p>
-</section>
-<section>
-<h2>Contact</h2>
-<p>Email: <a href="mailto:manishk958870@gmail.com">manishk958870@gmail.com</a></p>
-</section>
-</main>
-<footer>© Manish Kumar | Portfolio</footer>
+  <div class="container">
+    <nav>
+      <div class="logo">MK. Portfolio</div>
+      <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+
+  <header class="hero">
+    <div class="avatar">MK</div>
+    <div class="eyebrow">Welcome to my portfolio</div>
+    <h1>Manish Kumar</h1>
+    <p>Commerce Fresher | Accounting &amp; Computer Skills</p>
+    <p>
+      I am building my knowledge in accounting, computer applications
+      and web development, one step at a time.
+    </p>
+
+    <div class="buttons">
+      <a class="btn" href="mailto:manishk958870@gmail.com">
+        Contact Me
+      </a>
+      <a class="btn btn-outline" href="#projects">
+        Explore My Learning
+      </a>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <p>
+        I am a Commerce fresher interested in accounting, office work
+        and computer applications. I am improving my MS Excel skills
+        and learning coding to build useful digital projects.
+      </p>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">My Skills</h2>
+      <p class="section-intro">
+        Computer and communication skills I am developing.
+      </p>
+
+      <div class="skills">
+        <span class="tag">MS Word</span>
+        <span class="tag">MS Excel</span>
+        <span class="tag">Computer Basics</span>
+        <span class="tag">Typing</span>
+        <span class="tag">Communication</span>
+        <span class="tag">Hindi Communication</span>
+        <span class="tag">Basic English</span>
+        <span class="tag">HTML Basics</span>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Projects &amp; Learning</h2>
+      <p class="section-intro">
+        Practice areas where I am building my knowledge.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <h3>Excel Practice</h3>
+          <p>
+            Learning spreadsheet formatting, tables and basic formulas
+            through practice exercises.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Accounting Learning</h3>
+          <p>
+            Practising beginner accounting concepts and learning
+            how financial records are organised.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Portfolio Website</h3>
+          <p>
+            Learning HTML and CSS by building and improving this
+            personal portfolio website.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Future Projects</h3>
+          <p>
+            I plan to create practical projects as I improve my
+            computer and coding skills.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2 class="section-title">Education</h2>
+
+      <div class="education-item">
+        <h3>Class 12 — Commerce</h3>
+        <p>Passed in 2026</p>
+        <p>Accountancy, Business Studies and Economics</p>
+        <p>GCSV SEC 13 DWARKA, NEW DELHI 110071</p>
+      </div>
+
+      <div class="education-item">
+        <h3>Class 10</h3>
+        <p>GCSV SEC 13 DWARKA, NEW DELHI 110071</p>
+      </div>
+    </section>
+
+    <section id="languages">
+      <h2 class="section-title">Languages</h2>
+
+      <div class="language-row">
+        <span>Hindi</span>
+        <span class="language-level">Fluent</span>
+      </div>
+
+      <div class="language-row">
+        <span>English</span>
+        <span class="language-level">Basic</span>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-box">
+      <h2 class="section-title">Let's Connect</h2>
+      <p>
+        Have a question or want to contact me? Send me an email.
+      </p>
+      <a class="btn" href="mailto:manishk958870@gmail.com">
+        Email Manish
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year">2026</span> Manish Kumar | Personal Portfolio</p>
+    <p>Built while learning HTML and CSS.</p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
 </body>
 </html>
